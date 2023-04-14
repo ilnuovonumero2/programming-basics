@@ -1,20 +1,21 @@
-// richiesta del tipo di dato
+// Data type request
+const prompt = require('prompt-sync')();
+const scaleChoice = prompt('Enter the measurement scale (meters or feet): ');
 
-let sceltaScala = "metri";
+// Declare measurements
+let length = 3;
+let height = 4;
+let finalMeasure = 1;
 
-// dichiarazione misure
-let larghezza = 1;
-let altezza = 1;
-let misuraFinale = 1;
-
-// calcolo stanza
-if (sceltaScala == "metri") {
-    misuraFinale = larghezza * altezza;
-    console.log("la tua stanza misura "+ misuraFinale +" metri");
-} else if (sceltaScala == "piedi") {
-    misuraFinale = larghezza * altezza;
-    console.log("la tua stanza misura "+ misuraFinale +" piedi");
+// Calculate room area
+if (scaleChoice === 'meters') {
+  finalMeasure = length * height;
+  console.log('Your room measures ' + finalMeasure + ' meters.');
+} else if (scaleChoice === 'feet') {
+  const conversionFactor = 3.28084;
+  finalMeasure = (length * conversionFactor) * (height * conversionFactor);
+  console.log('Your room measures ' + finalMeasure.toFixed(2) + ' feet.');
 } else {
-    console.log("Devi inserire la scala di misura")
+  console.log('You must enter the correct measurement scale (meters or feet).');
 }
 
